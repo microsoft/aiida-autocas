@@ -6,8 +6,8 @@
 
 The plugin can be installed using pip and the pyproject.toml file assuming AiiDA has already been installed. 
 ```bash
-git clone https://github.com/adam-grofe/AiiDA_AutoCAS_Plugin.git
-cd Aiida_Autocas_Plugin
+git clone https://github.com/microsoft/aiida-autocas.git
+cd aiida-autocas
 pip install -e .
 ```
 
@@ -16,7 +16,7 @@ pip install -e .
 First add the AutoCAS code to verdi following the instructions 
 [here](https://aiida.readthedocs.io/projects/aiida-core/en/latest/howto/run_codes.html). The AutoCAS plugin is
 implemented as a [CalcJob](https://aiida.readthedocs.io/projects/aiida-core/en/latest/topics/calculations/concepts.html#calculation-jobs)
-where with the name `autocas`.  A sample script is given in [examples](https://github.com/adam-grofe/AiiDA_AutoCAS_Plugin/blob/main/examples/n2.py).
+where with the name `autocas`.  A sample script is given in [examples](https://github.com/microsoft/aiida-autocas/blob/main/examples/n2.py).
 
 ### Calculation Input Parameters
 The CalcJob is implemented with a number of input parameters that allow you to modify the 
