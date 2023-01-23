@@ -1,14 +1,56 @@
-# Project
+# AiiDA Scine AutoCAS
 
-> This repo has been populated by an initial template to help get you started. Please
-> make sure to update the content to build a great experience for community-building.
+[AiiDA](http://www.aiida.net/) plugin for [Scine AutoCAS](https://scine.ethz.ch/download/autocas).
 
-As the maintainer of this project, please make a few updates:
+## Installation
 
-- Improving this README.MD file to provide a great experience
-- Updating SUPPORT.MD with content about this project's support experience
-- Understanding the security reporting process in SECURITY.MD
-- Remove this section from the README
+The plugin can be installed using pip and the pyproject.toml file assuming AiiDA has already been installed. 
+```bash
+git clone https://github.com/adam-grofe/AiiDA_AutoCAS_Plugin.git
+cd Aiida_Autocas_Plugin
+pip install -e .
+```
+
+## Usage
+
+First add the AutoCAS code to verdi following the instructions 
+[here](https://aiida.readthedocs.io/projects/aiida-core/en/latest/howto/run_codes.html). The AutoCAS plugin is
+implemented as a [CalcJob](https://aiida.readthedocs.io/projects/aiida-core/en/latest/topics/calculations/concepts.html#calculation-jobs)
+where with the name `autocas`.  A sample script is given in [examples](https://github.com/adam-grofe/AiiDA_AutoCAS_Plugin/blob/main/examples/n2.py).
+
+### Calculation Input Parameters
+The CalcJob is implemented with a number of input parameters that allow you to modify the 
+job. Almost all of these input variables already have default values except for **structure**, 
+which provides the molecular geometry. The following table outlines the input parameters
+and the default values being used. 
+
+| Variable | Type  | Default | Description|
+|----------|-------|---------|-----------------|
+| structure           | Structure Data | None      | Molecular geometry of the system|
+| basis_set           | String         | def2-svpd | The basis set to use for the quantum chemistry calculations |
+| charge              | Int            | 0         | Charge of the system            |
+| multiplicity        | Int            | 1         | Spin multiplicity of the system |
+| double_d_shell      | Bool           | True      | Whether to include the d shell for 3d transition metals |
+| interface           | String         | chronusq  | Which interface to quantum chemistry software should be used |
+| method              | String         | dmrg_ci   | Which active space method to use for the final energy (e.g. dmrg_ci, casscf, casci) |
+| dmrg_bond_dimension | Int            | 1000      | The bond dimension to use for the final DMRG calculation when using method=dmrg_ci |
+| dmrg_sweeps         | Int            | 10        | The number of DMRG sweeps to perform for the final DMRG calculation when using method=dmrg_ci |
+| large_cas_protocol  | Bool           | False     | Whether to use the Large CAS protocol |
+
+ 
+### Calculation Output Results
+Upon completion of the CalcJob, the following results (using 
+[AiiDA data types](https://aiida.readthedocs.io/projects/aiida-core/en/latest/topics/data_types.html)) 
+are returned.
+
+| Variable   |  Type   | Description |
+|------------|---------|-------------|
+| n_active_electrons | Int  | Number of electrons in determined active space |
+| n_active_orbitals  | Int  | Number of orbitals in the choosen active space |
+| active_orbitals    | ArrayData | One dimensional array containing the orbital indices of the choosen active space |
+| energy             | Float | Energy of the system using the method choosen in the input (e.g. DRMG, CASCI, CASSCF) |
+
+
 
 ## Contributing
 

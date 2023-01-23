@@ -1,0 +1,22 @@
+[build-system]
+# build the package with [flit](https://flit.readthedocs.io)
+requires = ["flit_core >=3.4,<4"]
+build-backend = "flit_core.buildapi"
+
+[project]
+# See https://www.python.org/dev/peps/pep-0621/
+name = "aiida-autocas"
+version = "0.1.0"
+description = "AiiDA AutoCAS Plugin"
+dependencies = [
+    "aiida-core>=2.0,<3",
+]
+
+[project.entry-points."aiida.calculations"]
+"autocas" = "aiida_autocas.calculations:AutoCASCalculation"
+
+[project.entry-points."aiida.parsers"]
+"autocas" = "aiida_autocas.parsers:AutoCASParser"
+
+[tool.flit.module]
+name = "aiida_autocas"
