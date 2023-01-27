@@ -12,6 +12,12 @@ dependencies = [
     "aiida-core>=2.0,<3",
 ]
 
+[project.optional-dependencies]
+pre-commit = [
+    "pre-commit~=2.2",
+    "pylint>=2.5.0,<2.9"
+]
+
 [project.entry-points."aiida.calculations"]
 "autocas" = "aiida_autocas.calculations:AutoCASCalculation"
 
@@ -20,3 +26,6 @@ dependencies = [
 
 [tool.flit.module]
 name = "aiida_autocas"
+
+[tool.pylint.format]
+max-line-length = 125

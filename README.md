@@ -4,7 +4,7 @@
 
 ## Installation
 
-The plugin can be installed using pip and the pyproject.toml file assuming AiiDA has already been installed. 
+The plugin can be installed using pip and the pyproject.toml file assuming AiiDA has already been installed.
 ```bash
 git clone https://github.com/microsoft/aiida-autocas.git
 cd aiida-autocas
@@ -13,16 +13,16 @@ pip install -e .
 
 ## Usage
 
-First add the AutoCAS code to verdi following the instructions 
+First add the AutoCAS code to verdi following the instructions
 [here](https://aiida.readthedocs.io/projects/aiida-core/en/latest/howto/run_codes.html). The AutoCAS plugin is
 implemented as a [CalcJob](https://aiida.readthedocs.io/projects/aiida-core/en/latest/topics/calculations/concepts.html#calculation-jobs)
 where with the name `autocas`.  A sample script is given in [examples](https://github.com/microsoft/aiida-autocas/blob/main/examples/n2.py).
 
 ### Calculation Input Parameters
-The CalcJob is implemented with a number of input parameters that allow you to modify the 
-job. Almost all of these input variables already have default values except for **structure**, 
+The CalcJob is implemented with a number of input parameters that allow you to modify the
+job. Almost all of these input variables already have default values except for **structure**,
 which provides the molecular geometry. The following table outlines the input parameters
-and the default values being used. 
+and the default values being used.
 
 | Variable | Type  | Default | Description|
 |----------|-------|---------|-----------------|
@@ -37,10 +37,10 @@ and the default values being used.
 | dmrg_sweeps         | Int            | 10        | The number of DMRG sweeps to perform for the final DMRG calculation when using method=dmrg_ci |
 | large_cas_protocol  | Bool           | False     | Whether to use the Large CAS protocol |
 
- 
+
 ### Calculation Output Results
-Upon completion of the CalcJob, the following results (using 
-[AiiDA data types](https://aiida.readthedocs.io/projects/aiida-core/en/latest/topics/data_types.html)) 
+Upon completion of the CalcJob, the following results (using
+[AiiDA data types](https://aiida.readthedocs.io/projects/aiida-core/en/latest/topics/data_types.html))
 are returned.
 
 | Variable   |  Type   | Description |
@@ -68,8 +68,8 @@ contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additio
 
 ## Trademarks
 
-This project may contain trademarks or logos for projects, products, or services. Authorized use of Microsoft 
-trademarks or logos is subject to and must follow 
+This project may contain trademarks or logos for projects, products, or services. Authorized use of Microsoft
+trademarks or logos is subject to and must follow
 [Microsoft's Trademark & Brand Guidelines](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general).
 Use of Microsoft trademarks or logos in modified versions of this project must not cause confusion or imply Microsoft sponsorship.
 Any use of third-party trademarks or logos are subject to those third-party's policies.
