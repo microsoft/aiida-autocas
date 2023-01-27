@@ -20,3 +20,5 @@ builder.structure = struc
 
 # Perform Calculation
 result = engine.run(builder)
+
+print(result)

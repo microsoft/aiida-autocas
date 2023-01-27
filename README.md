@@ -4,7 +4,7 @@
 
 ## Installation
 
-The plugin can be installed using pip and the pyproject.toml file assuming AiiDA has already been installed.
+The plugin can be installed using pip assuming AiiDA has already been installed.
 ```bash
 git clone https://github.com/microsoft/aiida-autocas.git
 cd aiida-autocas
@@ -13,16 +13,14 @@ pip install -e .
 
 ## Usage
 
-First add the AutoCAS code to verdi following the instructions
-[here](https://aiida.readthedocs.io/projects/aiida-core/en/latest/howto/run_codes.html). The AutoCAS plugin is
-implemented as a [CalcJob](https://aiida.readthedocs.io/projects/aiida-core/en/latest/topics/calculations/concepts.html#calculation-jobs)
-where with the name `autocas`.  A sample script is given in [examples](https://github.com/microsoft/aiida-autocas/blob/main/examples/n2.py).
+First, create an AiiDA Code `autocas@local` pointing to the `scine_autocas/__main__.py` script (see [aiida-core docs](https://aiida.readthedocs.io/projects/aiida-core/en/latest/howto/run_codes.html)).
+
+Load this code in the example script `examples/n2.py` and run it via `./n2.py`.
 
 ### Calculation Input Parameters
-The CalcJob is implemented with a number of input parameters that allow you to modify the
-job. Almost all of these input variables already have default values except for **structure**,
-which provides the molecular geometry. The following table outlines the input parameters
-and the default values being used.
+
+The AutoCAS CalcJob takes a **structure** input, which provides the molecular geometry.
+Further parameters allow users to modify the settings, but all of these input variables have default values and are thus optional.
 
 | Variable | Type  | Default | Description|
 |----------|-------|---------|-----------------|
