@@ -90,6 +90,17 @@ class AutoCASCalculation(CalcJob):
             default=lambda: Bool(False),
         )
 
+        # Currently, AutoCAS only runs on a single node
+        spec.input(
+            "metadata.options.resources",
+            valid_type=dict,
+            default={
+                "num_machines": 1,
+                "num_mpiprocs_per_machine": 1,
+                "tot_num_mpiprocs": 1,
+            },
+        )
+
         # Define Outputs
         spec.output(
             "n_active_electrons",
