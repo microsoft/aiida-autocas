@@ -5,6 +5,7 @@
 ## Installation
 
 The plugin can be installed using pip assuming AiiDA has already been installed.
+
 ```bash
 git clone https://github.com/microsoft/aiida-autocas.git
 cd aiida-autocas
@@ -35,8 +36,8 @@ Further parameters allow users to modify the settings, but all of these input va
 | dmrg_sweeps         | Int            | 10        | The number of DMRG sweeps to perform for the final DMRG calculation when using method=dmrg_ci |
 | large_cas_protocol  | Bool           | False     | Whether to use the Large CAS protocol |
 
-
 ### Calculation Output Results
+
 Upon completion of the CalcJob, the following results (using
 [AiiDA data types](https://aiida.readthedocs.io/projects/aiida-core/en/latest/topics/data_types.html))
 are returned.
@@ -48,13 +49,16 @@ are returned.
 | active_orbitals    | ArrayData | One dimensional array containing the orbital indices of the choosen active space |
 | energy             | Float | Energy of the system using the method choosen in the input (e.g. DRMG, CASCI, CASSCF) |
 
+### Scine AutoCAS
 
+A copy of the [Scine AutoCAS](https://scine.ethz.ch/download/autocas) code that includes the interface to [Chronus Quantum](https://urania.chem.washington.edu/chronusq/chronusq_public/-/wikis/Home?version_id=d82ae91a699ceff9f4fc75202b5ae221584adfef) is given in the scine_autocas
+directory.
 
 ## Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
 Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us
-the rights to use your contribution. For details, visit https://cla.opensource.microsoft.com.
+the rights to use your contribution. For details, visit <https://cla.opensource.microsoft.com>.
 
 When you submit a pull request, a CLA bot will automatically determine whether you need to provide
 a CLA and decorate the PR appropriately (e.g., status check, comment). Simply follow the instructions
